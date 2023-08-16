@@ -187,6 +187,9 @@ def register():
 #Homepage
 @app.route('/homepage',  methods = ['GET','POST'])
 def home():
+    if person ["is_logged_in"] != True:
+        return redirect(url_for('login'))
+
     error = None
     if request.method == "POST":
         if request.form["submit"] == "submit":
@@ -216,10 +219,14 @@ def home():
 
 @app.route('/about_us')
 def about_us():
+    if person ["is_logged_in"] != True:
+        return redirect(url_for('login'))
     return render_template("about_us.html")    
 
 @app.route('/about_model')
 def about_model():
+    if person ["is_logged_in"] != True:
+        return redirect(url_for('login'))
     return render_template("about_model.html")   
 
 @app.route('/display/<filename>')
