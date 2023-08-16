@@ -44,6 +44,9 @@
               <button class="btn btn-info btn-lg btn-block" type="submit" value="Log In">Login</button>
             </div>
 
+            {% if messages %}
+            <p class="small mb-5 pb-lg-2" style="color: red;">{{ messages }}</p>
+            {% endif %}
             <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
             <p>Don't have an account? <a href="http://127.0.0.1:5000/signup" class="link-info">Register here</a></p>
 

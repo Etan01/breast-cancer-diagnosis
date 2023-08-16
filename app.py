@@ -145,7 +145,7 @@ def login_successfully():
         except Exception as e:
             print(e)
             #If there is any error, redirect back to login
-            return redirect(url_for('login'))
+            return render_template("login.html", messages = "Username or password is incorrect")
     print("Login unsuccessful")
     return render_template("login.html")
 
@@ -176,7 +176,7 @@ def register():
         except Exception as e:
             print(e)
             #If there is any error, redirect to register
-            return redirect(url_for('register'))
+            return render_template("signup.html", messages = "Error creating account")
     else:
         if person["is_logged_in"] == True:
             return render_template("index.html")
